@@ -35,6 +35,7 @@ import "pages"
 ApplicationWindow
 {
     initialPage: initialPage //Component { FirstPage { } }
+    cover: cover
     Page {
         id: initialPage
         Label {
@@ -43,15 +44,39 @@ ApplicationWindow
             anchors.centerIn: parent
         }
         Button {
-            text: "Следующий"
+            text: "Диалоговое окно"
             anchors.top: helloLabel.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: pageStack.push(Qt.resolvedUrl("pages/SecondPage.qml"))
+            onClicked: pageStack.push(dialog, {}, PageStackAction.Immediate)
+            //onClicked: console.log(qsTr("btn Clicked"))
+        }
+    }
+    Cover {
+        id: cover
+        transparent: true
+        Label {
+            id: coverLabel
+            text: "Привет, Хабр!"
+            anchors.centerIn: parent
         }
     }
 
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+    Dialog {
+        id: dialog
+        DialogHeader {
+            title: "Простой диалог"
+        }
+
+        Label {
+            text: "Я - диалог"
+            anchors.centerIn: parent
+        }
+        onAccepted: coverLabel.text = "Согласился"
+        onRejected: coverLabel.text = "Отказался"
+    }
+
+//    cover: Qt.resolvedUrl("cover/CoverPage.qml")
+//    allowedOrientations: defaultAllowedOrientations
 
 
 
