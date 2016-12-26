@@ -44,6 +44,7 @@ ApplicationWindow
             anchors.centerIn: parent
         }
         Button {
+            id: btn
             text: "Диалоговое окно"
             anchors.top: helloLabel.bottom
             anchors.horizontalCenter: parent.horizontalCenter
@@ -96,13 +97,20 @@ ApplicationWindow
             anchors.top: smalSize.bottom
         }
         Text {
+            id: tinySize
             text: "Самый маленький текст"
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeTiny
             color: "white"
             anchors.top: extraSmall.bottom
         }
-
+        Label {
+            text: Theme.highlightText("раз два три раз два три", "два", "red")
+//            anchors.top: tinySize.bottom
+//            anchors.centerIn: parent
+            anchors.bottom: helloLabel.top
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
 
 
 
