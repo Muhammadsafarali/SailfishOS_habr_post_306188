@@ -42,13 +42,16 @@ ApplicationWindow
             id: helloLabel
             text: "Привет, Хабр!"
             anchors.centerIn: parent
+//            color: rgba("red", 0.1)
         }
         Button {
             id: btn
             text: "Диалоговое окно"
             anchors.top: helloLabel.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: pageStack.push(dialog, {}, PageStackAction.Immediate)
+            onClicked: pageStack.push(dialog,
+                                      {},
+                                      PageStackAction.Immediate) // Переход без анимации. По умолчанию с анимацией.
             //onClicked: console.log(qsTr("btn Clicked"))
         }
         Text {
