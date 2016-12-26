@@ -50,6 +50,62 @@ ApplicationWindow
             onClicked: pageStack.push(dialog, {}, PageStackAction.Immediate)
             //onClicked: console.log(qsTr("btn Clicked"))
         }
+        Text {
+            id: headerText
+            text: "Заголовок"
+            font.family: Theme.fontFamilyHeading
+            font.pixelSize: Theme.fontSizeLarge
+        }
+        Text {
+            id: extraLarge
+            text: "Чуть меньший размер шрифта"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeExtraLarge
+            anchors.top: headerText.bottom
+        }
+        Text {
+            id: largeText
+            text: "Обычный большой размер"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeLarge
+            color: "white"
+            anchors.top: extraLarge.bottom
+        }
+        Text {
+            id: mediumText
+            text: "Обычный текст"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeMedium
+            color: "white"
+            anchors.top: largeText.bottom
+        }
+        Text {
+            id: smalSize
+            text: "Мелкий размер текст"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSmall
+            color: "white"
+            anchors.top: mediumText.bottom
+        }
+        Text {
+            id: extraSmall
+            text: "Еще меньше"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: "white"
+            anchors.top: smalSize.bottom
+        }
+        Text {
+            text: "Самый маленький текст"
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeTiny
+            color: "white"
+            anchors.top: extraSmall.bottom
+        }
+
+
+
+
     }
     Cover {
         id: cover
