@@ -34,8 +34,26 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { FirstPage { } }
+    initialPage: initialPage //Component { FirstPage { } }
+    Page {
+        id: initialPage
+        Label {
+            id: helloLabel
+            text: "Привет, Хабр!"
+            anchors.centerIn: parent
+        }
+        Button {
+            text: "Следующий"
+            anchors.top: helloLabel.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: pageStack.push(Qt.resolvedUrl("pages/SecondPage.qml"))
+        }
+    }
+
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
+
+
+
 }
 
