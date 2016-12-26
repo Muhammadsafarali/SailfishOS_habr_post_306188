@@ -34,4 +34,11 @@
         <translation>Element</translation>
     </message>
 </context>
+<context>
+    <name>hello_world</name>
+    <message>
+        <source>btn Clicked</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
