@@ -43,11 +43,24 @@ ApplicationWindow
             anchors.centerIn: parent
         }
         Button {
-            text: "Следующий"
+            text: "Диалоговое окно"
             anchors.top: helloLabel.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: pageStack.push(Qt.resolvedUrl("pages/SecondPage.qml"))
+            onClicked: pageStack.push(dialog, {}, PageStackAction.Immediate)
         }
+    }
+    Dialog {
+        id: dialog
+        DialogHeader {
+            title: "Простой диалог"
+        }
+
+        Label {
+            text: "Я - диалог"
+            anchors.centerIn: parent
+        }
+        onAccepted: helloLabel.text = "Согласился"
+        onRejected: helloLabel.text = "Отказался"
     }
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
